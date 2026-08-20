@@ -21,7 +21,7 @@ import {
 import { toast } from "sonner";
 
 import cvAsset from "@/assets/lesego-cv.pdf.asset.json";
-import portrait from "@/assets/lesego-portrait.jpg.asset.json";
+import portrait from "@/assets/lesego-hero.jpg.asset.json";
 import { Reveal } from "@/components/reveal";
 import { ThemeToggle } from "@/components/theme-toggle";
 
