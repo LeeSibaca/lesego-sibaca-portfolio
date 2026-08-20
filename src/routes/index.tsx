@@ -312,6 +312,14 @@ function Index() {
                 View operations <ArrowUpRight className="h-4 w-4" />
               </a>
               <a
+                href={CV_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="surface inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-mono text-sm transition-colors hover:border-primary/40"
+              >
+                <FileDown className="h-4 w-4 text-primary" /> Download CV
+              </a>
+              <a
                 href="#contact"
                 className="surface inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-mono text-sm transition-colors hover:border-primary/40"
               >
@@ -321,14 +329,102 @@ function Index() {
           </div>
         </section>
 
+        {/* About */}
+        <Section
+          id="about"
+          eyebrow="01 / operator profile"
+          title="About"
+          subtitle="Who is behind the console, and how I work."
+        >
+          <div className="grid auto-rows-[minmax(0,auto)] gap-4 lg:grid-cols-6">
+            <Reveal className="lg:col-span-4">
+              <article className="surface flex h-full flex-col justify-center rounded-2xl p-7">
+                <h3 className="font-mono text-lg font-semibold">Security engineer, evidence-first</h3>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  I work where detection engineering meets offensive testing: building the telemetry
+                  and analytics that catch intrusions, then attacking the same estate to prove the
+                  coverage holds. Every finding ships with reproducible evidence, business impact and
+                  a remediation path an engineering team can actually execute.
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  Lately my focus is the AI layer — prompt-injection testing, model abuse monitoring
+                  and ML-assisted anomaly detection across cloud identity estates.
+                </p>
+              </article>
+            </Reveal>
+
+            <Reveal delay={70} className="lg:col-span-2">
+              <article className="surface flex h-full flex-col justify-center gap-4 rounded-2xl p-7">
+                {[
+                  ["4+", "years in security operations"],
+                  ["40+", "offensive engagements"],
+                  ["5", "industry certifications"],
+                ].map(([v, k]) => (
+                  <div key={k}>
+                    <p className="font-mono text-3xl font-bold text-primary">{v}</p>
+                    <p className="font-mono text-[0.68rem] tracking-wide text-muted-foreground uppercase">
+                      {k}
+                    </p>
+                  </div>
+                ))}
+              </article>
+            </Reveal>
+
+            <Reveal delay={140} className="lg:col-span-2">
+              <article className="surface h-full rounded-2xl p-7">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/12 text-primary">
+                  <Radar className="h-5 w-5" />
+                </span>
+                <h3 className="mt-4 font-mono text-base font-semibold">Approach</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  Threat-model first, instrument second, automate the repeatable third.
+                </p>
+              </article>
+            </Reveal>
+
+            <Reveal delay={210} className="lg:col-span-2">
+              <article className="surface h-full rounded-2xl p-7">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-signal/12 text-signal">
+                  <Activity className="h-5 w-5" />
+                </span>
+                <h3 className="mt-4 font-mono text-base font-semibold">Currently</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  Running a home-lab SOC and building AI red-team tooling in the open.
+                </p>
+              </article>
+            </Reveal>
+
+            <Reveal delay={280} className="lg:col-span-2">
+              <article className="surface flex h-full flex-col rounded-2xl p-7">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-warn/12 text-warn">
+                  <ShieldCheck className="h-5 w-5" />
+                </span>
+                <h3 className="mt-4 font-mono text-base font-semibold">Credentials</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  Security+, SC-200, eJPT, CyberOps and Google AI Essentials.
+                </p>
+                <a
+                  href={CV_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-4 inline-flex items-center gap-1.5 font-mono text-xs text-primary hover:underline"
+                >
+                  Download CV <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
+              </article>
+            </Reveal>
+          </div>
+        </Section>
+
         {/* Expertise */}
         <Section
           id="expertise"
-          eyebrow="01 / capability matrix"
+          eyebrow="02 / capability matrix"
           title="Expertise & stack"
           subtitle="Depth across detection, offence and the emerging AI attack surface."
         >
-          <div className="grid gap-4 lg:grid-cols-4">
+          <div className="grid auto-rows-[minmax(0,auto)] gap-4 lg:grid-cols-4">
+
             {BENTO.map((item, i) => (
               <Reveal key={item.title} delay={i * 70} className={item.span}>
                 <article className="surface group flex h-full flex-col rounded-2xl p-6 transition-all duration-500 hover:-translate-y-1 hover:border-primary/40">
