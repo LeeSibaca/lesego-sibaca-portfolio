@@ -8,6 +8,7 @@ import {
   Bug,
   ChevronLeft,
   ChevronRight,
+  FileDown,
   Fingerprint,
   Github,
   Linkedin,
@@ -19,7 +20,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
-import portrait from "@/assets/portrait.jpg";
+import portrait from "@/assets/lesego-portrait.jpg.asset.json";
 import { Reveal } from "@/components/reveal";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -46,11 +47,16 @@ export const Route = createFileRoute("/")({
 });
 
 const NAV = [
+  { label: "about", href: "#about" },
   { label: "expertise", href: "#expertise" },
   { label: "projects", href: "#projects" },
   { label: "credentials", href: "#credentials" },
   { label: "contact", href: "#contact" },
 ];
+
+export const CV_URL =
+  "https://mail.google.com/mail/u/0?ui=2&ik=131a76f2cc&attid=0.1&permmsgid=msg-a:r2313250570898803052&th=19ff082baab6affc&view=att&disp=inline&realattid=19ff082a2d79cd6c861&zw";
+
 
 const BENTO = [
   {
@@ -239,13 +245,13 @@ function Index() {
         <section className="mx-auto flex max-w-6xl flex-col gap-12 px-4 pt-32 pb-20 sm:px-6 lg:grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:items-center lg:gap-16 lg:pt-40 lg:pb-28">
           <div className="rise relative mx-auto w-full max-w-sm lg:max-w-none">
             <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-primary/20 blur-3xl" />
-            <div className="surface overflow-hidden rounded-3xl p-2">
+            <div className="glow-frame overflow-hidden rounded-3xl bg-glass p-2 backdrop-blur-xl">
               <img
-                src={portrait}
+                src={portrait.url}
                 alt="Portrait of Lesego Sibaca, cybersecurity engineer"
-                width={1024}
-                height={1280}
-                className="h-full w-full rounded-[1.25rem] object-cover"
+                width={720}
+                height={720}
+                className="aspect-square h-full w-full rounded-[1.25rem] object-cover"
               />
             </div>
             <div className="surface absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full px-4 py-2 whitespace-nowrap">
@@ -255,6 +261,7 @@ function Index() {
               </span>
             </div>
           </div>
+
 
           <div className="rise" style={{ animationDelay: "120ms" }}>
             <p className="font-mono text-xs tracking-[0.3em] text-primary uppercase">
@@ -306,6 +313,14 @@ function Index() {
                 View operations <ArrowUpRight className="h-4 w-4" />
               </a>
               <a
+                href={CV_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="surface inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-mono text-sm transition-colors hover:border-primary/40"
+              >
+                <FileDown className="h-4 w-4 text-primary" /> Download CV
+              </a>
+              <a
                 href="#contact"
                 className="surface inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-mono text-sm transition-colors hover:border-primary/40"
               >
@@ -315,14 +330,102 @@ function Index() {
           </div>
         </section>
 
+        {/* About */}
+        <Section
+          id="about"
+          eyebrow="01 / operator profile"
+          title="About"
+          subtitle="Who is behind the console, and how I work."
+        >
+          <div className="grid auto-rows-[minmax(0,auto)] gap-4 lg:grid-cols-6">
+            <Reveal className="lg:col-span-4">
+              <article className="surface flex h-full flex-col justify-center rounded-2xl p-7">
+                <h3 className="font-mono text-lg font-semibold">Security engineer, evidence-first</h3>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  I work where detection engineering meets offensive testing: building the telemetry
+                  and analytics that catch intrusions, then attacking the same estate to prove the
+                  coverage holds. Every finding ships with reproducible evidence, business impact and
+                  a remediation path an engineering team can actually execute.
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  Lately my focus is the AI layer — prompt-injection testing, model abuse monitoring
+                  and ML-assisted anomaly detection across cloud identity estates.
+                </p>
+              </article>
+            </Reveal>
+
+            <Reveal delay={70} className="lg:col-span-2">
+              <article className="surface flex h-full flex-col justify-center gap-4 rounded-2xl p-7">
+                {[
+                  ["4+", "years in security operations"],
+                  ["40+", "offensive engagements"],
+                  ["5", "industry certifications"],
+                ].map(([v, k]) => (
+                  <div key={k}>
+                    <p className="font-mono text-3xl font-bold text-primary">{v}</p>
+                    <p className="font-mono text-[0.68rem] tracking-wide text-muted-foreground uppercase">
+                      {k}
+                    </p>
+                  </div>
+                ))}
+              </article>
+            </Reveal>
+
+            <Reveal delay={140} className="lg:col-span-2">
+              <article className="surface h-full rounded-2xl p-7">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/12 text-primary">
+                  <Radar className="h-5 w-5" />
+                </span>
+                <h3 className="mt-4 font-mono text-base font-semibold">Approach</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  Threat-model first, instrument second, automate the repeatable third.
+                </p>
+              </article>
+            </Reveal>
+
+            <Reveal delay={210} className="lg:col-span-2">
+              <article className="surface h-full rounded-2xl p-7">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-signal/12 text-signal">
+                  <Activity className="h-5 w-5" />
+                </span>
+                <h3 className="mt-4 font-mono text-base font-semibold">Currently</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  Running a home-lab SOC and building AI red-team tooling in the open.
+                </p>
+              </article>
+            </Reveal>
+
+            <Reveal delay={280} className="lg:col-span-2">
+              <article className="surface flex h-full flex-col rounded-2xl p-7">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-warn/12 text-warn">
+                  <ShieldCheck className="h-5 w-5" />
+                </span>
+                <h3 className="mt-4 font-mono text-base font-semibold">Credentials</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  Security+, SC-200, eJPT, CyberOps and Google AI Essentials.
+                </p>
+                <a
+                  href={CV_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-4 inline-flex items-center gap-1.5 font-mono text-xs text-primary hover:underline"
+                >
+                  Download CV <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
+              </article>
+            </Reveal>
+          </div>
+        </Section>
+
         {/* Expertise */}
         <Section
           id="expertise"
-          eyebrow="01 / capability matrix"
+          eyebrow="02 / capability matrix"
           title="Expertise & stack"
           subtitle="Depth across detection, offence and the emerging AI attack surface."
         >
-          <div className="grid gap-4 lg:grid-cols-4">
+          <div className="grid auto-rows-[minmax(0,auto)] gap-4 lg:grid-cols-4">
+
             {BENTO.map((item, i) => (
               <Reveal key={item.title} delay={i * 70} className={item.span}>
                 <article className="surface group flex h-full flex-col rounded-2xl p-6 transition-all duration-500 hover:-translate-y-1 hover:border-primary/40">
@@ -363,7 +466,7 @@ function Index() {
         {/* Projects */}
         <Section
           id="projects"
-          eyebrow="02 / live monitor"
+          eyebrow="03 / live monitor"
           title="Project dashboard"
           subtitle="Selected builds and engagements, instrumented like production systems."
         >
@@ -421,7 +524,7 @@ function Index() {
         {/* Certifications */}
         <Section
           id="credentials"
-          eyebrow="03 / credential ledger"
+          eyebrow="04 / credential ledger"
           title="Certifications"
           subtitle="Verified training across defensive, offensive and AI disciplines."
         >
@@ -485,7 +588,7 @@ function Index() {
         {/* Contact */}
         <Section
           id="contact"
-          eyebrow="04 / secure channel"
+          eyebrow="05 / secure channel"
           title="Establish contact"
           subtitle="Messages are reviewed personally. No recruiters' bots, please."
         >
