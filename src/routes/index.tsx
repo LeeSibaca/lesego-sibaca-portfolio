@@ -466,7 +466,7 @@ function Index() {
         {/* Projects */}
         <Section
           id="projects"
-          eyebrow="02 / live monitor"
+          eyebrow="03 / live monitor"
           title="Project dashboard"
           subtitle="Selected builds and engagements, instrumented like production systems."
         >
@@ -524,7 +524,7 @@ function Index() {
         {/* Certifications */}
         <Section
           id="credentials"
-          eyebrow="03 / credential ledger"
+          eyebrow="04 / credential ledger"
           title="Certifications"
           subtitle="Verified training across defensive, offensive and AI disciplines."
         >
@@ -588,7 +588,7 @@ function Index() {
         {/* Contact */}
         <Section
           id="contact"
-          eyebrow="04 / secure channel"
+          eyebrow="05 / secure channel"
           title="Establish contact"
           subtitle="Messages are reviewed personally. No recruiters' bots, please."
         >
