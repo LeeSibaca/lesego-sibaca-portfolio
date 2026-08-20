@@ -147,6 +147,15 @@
   background: var(--gradient-halo);
 }
 
+@utility glow-frame {
+  border: 1px solid color-mix(in oklab, var(--primary) 45%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--primary) 12%, transparent),
+    0 0 28px -6px color-mix(in oklab, var(--primary) 45%, transparent),
+    0 32px 70px -34px color-mix(in oklab, var(--foreground) 55%, transparent);
+}
+
+
 @utility text-gradient {
   background: linear-gradient(
     100deg,

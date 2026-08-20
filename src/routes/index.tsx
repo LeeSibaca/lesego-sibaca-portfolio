@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
-import portrait from "@/assets/portrait.jpg";
+import portrait from "@/assets/lesego-portrait.jpg.asset.json";
 import { Reveal } from "@/components/reveal";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -46,11 +46,16 @@ export const Route = createFileRoute("/")({
 });
 
 const NAV = [
+  { label: "about", href: "#about" },
   { label: "expertise", href: "#expertise" },
   { label: "projects", href: "#projects" },
   { label: "credentials", href: "#credentials" },
   { label: "contact", href: "#contact" },
 ];
+
+export const CV_URL =
+  "https://mail.google.com/mail/u/0?ui=2&ik=131a76f2cc&attid=0.1&permmsgid=msg-a:r2313250570898803052&th=19ff082baab6affc&view=att&disp=inline&realattid=19ff082a2d79cd6c861&zw";
+
 
 const BENTO = [
   {
@@ -239,13 +244,13 @@ function Index() {
         <section className="mx-auto flex max-w-6xl flex-col gap-12 px-4 pt-32 pb-20 sm:px-6 lg:grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:items-center lg:gap-16 lg:pt-40 lg:pb-28">
           <div className="rise relative mx-auto w-full max-w-sm lg:max-w-none">
             <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-primary/20 blur-3xl" />
-            <div className="surface overflow-hidden rounded-3xl p-2">
+            <div className="glow-frame overflow-hidden rounded-3xl bg-glass p-2 backdrop-blur-xl">
               <img
-                src={portrait}
+                src={portrait.url}
                 alt="Portrait of Lesego Sibaca, cybersecurity engineer"
-                width={1024}
-                height={1280}
-                className="h-full w-full rounded-[1.25rem] object-cover"
+                width={720}
+                height={720}
+                className="aspect-square h-full w-full rounded-[1.25rem] object-cover"
               />
             </div>
             <div className="surface absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full px-4 py-2 whitespace-nowrap">
@@ -255,6 +260,7 @@ function Index() {
               </span>
             </div>
           </div>
+
 
           <div className="rise" style={{ animationDelay: "120ms" }}>
             <p className="font-mono text-xs tracking-[0.3em] text-primary uppercase">
