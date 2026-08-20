@@ -58,7 +58,7 @@ const BENTO = [
     title: "SIEM & Detection Engineering",
     desc: "Splunk and Microsoft Sentinel pipelines, custom correlation rules, MITRE ATT&CK-mapped detections and 24/7 triage playbooks.",
     tags: ["Splunk", "Sentinel", "Sigma", "ATT&CK"],
-    span: "lg:col-span-2 lg:row-span-2",
+    span: "lg:col-span-2",
     metric: "1.2k+ alerts triaged",
   },
   {
