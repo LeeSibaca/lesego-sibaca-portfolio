@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
+import cvAsset from "@/assets/lesego-cv.pdf.asset.json";
 import portrait from "@/assets/lesego-portrait.jpg.asset.json";
 import { Reveal } from "@/components/reveal";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -54,8 +55,7 @@ const NAV = [
   { label: "contact", href: "#contact" },
 ];
 
-export const CV_URL =
-  "https://mail.google.com/mail/u/0?ui=2&ik=131a76f2cc&attid=0.1&permmsgid=msg-a:r2313250570898803052&th=19ff082baab6affc&view=att&disp=inline&realattid=19ff082a2d79cd6c861&zw";
+export const CV_URL = cvAsset.url;
 
 
 const BENTO = [
