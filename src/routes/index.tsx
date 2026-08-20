@@ -8,6 +8,7 @@ import {
   Bug,
   ChevronLeft,
   ChevronRight,
+  FileDown,
   Fingerprint,
   Github,
   Linkedin,
